@@ -1,0 +1,62 @@
+{
+	"name": "@enalmada/npm-module-template",
+	"version": "0.0.8",
+	"scripts": {
+		"build": "turbo build:clear build:script build:declaration",
+		"build:clear": "rm -rf dist",
+		"build:declaration": "tsc --emitDeclarationOnly",
+		"build:pack": "bun run build && npm pack",
+		"build:script": "cross-env NODE_ENV=production bun build.ts",
+		"dev:website": "cd website && bun run dev",
+		"lint": "biome check --fix --unsafe",
+		"pre-commit": "bun lint-staged",
+		"prepare": "husky install",
+		"release": "bun run build && bunx changeset publish",
+		"test": "turbo test:unit",
+		"test:unit": "cross-env NODE_ENV=test vitest",
+		"type-check": "bun --bun tsc --noEmit"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@changesets/cli": "2.27.9",
+		"@enalmada/bun-externals": "0.0.7",
+		"@scaleway/changesets-renovate": "2.1.2",
+		"@types/node": "22.8.5",
+		"cross-env": "7.0.3",
+		"fixpack": "4.0.0",
+		"husky": "9.1.6",
+		"lint-staged": "15.2.10",
+		"turbo": "2.2.3",
+		"typescript": "5.6.3",
+		"vitest": "2.1.4"
+	},
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"author": "Adam Lane",
+	"description": "npm module template",
+	"keywords": [
+		"bun",
+		"create",
+		"module",
+		"npm"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Enalmada/npm-module-template/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Enalmada/npm-module-template.git"
+	},
+	"homepage": "https://github.com/Enalmada/npm-module-template",
+	"private": false,
+	"publishConfig": {
+		"access": "public"
+	},
+	"type": "module",
+	"packageManager": "bun@1.1.33",
+	"trustedDependencies": [
+		"@biomejs/biome"
+	]
+}
