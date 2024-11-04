@@ -1,6 +1,6 @@
 {
 	"name": "@enalmada/next-firebase-auth-edge-wrapper",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"scripts": {
 		"build": "turbo build:clear build:script build:declaration",
 		"build:clear": "rm -rf dist",
