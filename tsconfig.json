@@ -3,7 +3,7 @@
 		"module": "ES2022",
 		"moduleResolution": "node",
 		"target": "ES2022",
-		"lib": ["ES2022"],
+		"lib": ["ES2022", "dom"],
 		"types": ["vitest/globals"],
 
 		"declaration": true,
@@ -21,7 +21,8 @@
 
 		// locations
 		"outDir": "./dist",
-		"rootDir": "./src"
+		"rootDir": "./src",
+		"jsx": "preserve"
 	},
 	"include": ["src/**/*.ts", "src/**/*.tsx"],
 	"exclude": ["dist", "node_modules", "test"]
