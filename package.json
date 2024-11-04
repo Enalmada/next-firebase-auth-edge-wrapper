@@ -1,6 +1,6 @@
 {
-	"name": "@enalmada/npm-module-template",
-	"version": "0.0.8",
+	"name": "@enalmada/next-firebase-auth-edge-wrapper",
+	"version": "0.0.1",
 	"scripts": {
 		"build": "turbo build:clear build:script build:declaration",
 		"build:clear": "rm -rf dist",
@@ -16,13 +16,21 @@
 		"test:unit": "cross-env NODE_ENV=test vitest",
 		"type-check": "bun --bun tsc --noEmit"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"@firebase/util": "1.10.1",
+		"firebase": "11.0.1",
+		"firebase-admin": "12.7.0",
+		"next-firebase-auth-edge": "1.8.0",
+		"react": "19.0.0-rc-02c0e824-20241028"
+	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
 		"@changesets/cli": "2.27.9",
 		"@enalmada/bun-externals": "0.0.7",
 		"@scaleway/changesets-renovate": "2.1.2",
-		"@types/node": "22.8.5",
+		"@types/node": "22.8.7",
+		"@types/react": "npm:types-react@19.0.0-rc.1",
+		"@types/react-dom": "npm:types-react-dom@19.0.0-rc.1",
 		"cross-env": "7.0.3",
 		"fixpack": "4.0.0",
 		"husky": "9.1.6",
@@ -35,28 +43,27 @@
 	"types": "dist/index.d.ts",
 	"author": "Adam Lane",
 	"description": "npm module template",
-	"keywords": [
-		"bun",
-		"create",
-		"module",
-		"npm"
-	],
+	"keywords": ["bun", "create", "module", "npm"],
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/Enalmada/npm-module-template/issues"
+		"url": "https://github.com/Enalmada/next-firebase-auth-edge-wrapper/issues"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Enalmada/npm-module-template.git"
+		"url": "git+https://github.com/Enalmada/next-firebase-auth-edge-wrapper.git"
 	},
-	"homepage": "https://github.com/Enalmada/npm-module-template",
+	"homepage": "https://github.com/Enalmada/next-firebase-auth-edge-wrapper",
 	"private": false,
 	"publishConfig": {
 		"access": "public"
 	},
 	"type": "module",
-	"packageManager": "bun@1.1.33",
-	"trustedDependencies": [
-		"@biomejs/biome"
-	]
+	"packageManager": "bun@1.1.34",
+	"trustedDependencies": ["@biomejs/biome", "protobufjs", "sharp"],
+	"exports": {
+		".": "./dist/index.js",
+		"./client/AuthProvider": "./dist/client/AuthProvider.js",
+		"./client/useRedirectAfterLogin": "./dist/client/useRedirectAfterLogin.js",
+		"./client/AuthContext": "./dist/client/AuthContext.js"
+	}
 }
