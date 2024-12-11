@@ -958,7 +958,8 @@ var require_dynamic_rendering = __commonJS((exports) => {
   }
   function formatDynamicAPIAccesses(dynamicAccesses) {
     return dynamicAccesses.filter((access) => typeof access.stack === "string" && access.stack.length > 0).map(({ expression, stack }) => {
-      stack = stack.split("\n").slice(4).filter((line) => {
+      stack = stack.split(`
+`).slice(4).filter((line) => {
         if (line.includes("node_modules/next/")) {
           return false;
         }
@@ -969,8 +970,10 @@ var require_dynamic_rendering = __commonJS((exports) => {
           return false;
         }
         return true;
-      }).join("\n");
-      return `Dynamic API Usage Debug - ${expression}:\n${stack}`;
+      }).join(`
+`);
+      return `Dynamic API Usage Debug - ${expression}:
+${stack}`;
     });
   }
   function assertPostpone() {
