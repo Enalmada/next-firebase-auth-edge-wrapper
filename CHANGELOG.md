@@ -1,5 +1,11 @@
 # @enalmada/storybook-addon-mock-urql
 
+## 0.0.3
+
+### Patch Changes
+
+- 3b766b8: peer dependencies react next-firebase-auth-edge
+
 ## 0.0.2
 
 ### Patch Changes
